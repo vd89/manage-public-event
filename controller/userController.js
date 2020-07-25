@@ -10,11 +10,49 @@ const createUser = async (req, res) => {
 		}
 		const newUser = new User(req.body);
 		await newUser.save();
-		return res.status(200).json(newUser);
+		return res.status(200).json({ msg: 'The user is register you can login' });
 	} catch (err) {
 		console.log('err :>> ', err);
 		return res.status(400).json({ errMsg: 'Registration failed from server' });
 	}
 };
 
-export default { createUser };
+const list = async (req, res) => {
+	try {
+		const users = await User.find().select('email name');
+		return res.status(200).json(users);
+	} catch (err) {
+		console.log(err);
+		return res.status(400).json({ errMsg: 'Failed to send the list request' });
+	}
+};
+
+/*
+	To get the user and append req
+*/
+const userByID = async (req, res, next, id) => {
+	try {
+		const user = await User.findById(id);
+		if (!user) {
+			return res.status(400).json({ errMsg: 'User is not found' });
+		}
+		req.profile = user;
+		next();
+	} catch (err) {
+		console.log(err);
+		return res.status(400).json({ errMsg: 'Could not find user' });
+	}
+};
+
+const read = (req, res) => {
+	req.profile.hashedPasswor = undefined;
+	return res.status(200).json(req.profile);
+};
+
+const update = async (req, res) => {
+	// console.log(req.profile);
+	const user = await User.findByIdAndUpdate({ _id: req.profile._id }, req.body);
+
+	return res.status(200).json(user);
+};
+export default { createUser, userByID, read, update, list };

@@ -56,7 +56,7 @@ UserSchema.methods = {
 		}
 	},
 	comparePassword: function (password) {
-		return compareSync(password, this.hashingPass);
+		return compareSync(password, this.hashPassword);
 	},
 };
 

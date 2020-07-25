@@ -50,9 +50,20 @@ const read = (req, res) => {
 };
 
 const update = async (req, res) => {
-	// console.log(req.profile);
-	const user = await User.findByIdAndUpdate({ _id: req.profile._id }, req.body);
-
-	return res.status(200).json(user);
+	console.log(req.body);
+	try {
+		const photo = req.file.filename;
+		console.log(photo);
+		const { firstName, lastName, gender, dateOfBirth } = req.body;
+		const user = await User.findByIdAndUpdate(
+			{ _id: req.profile._id },
+			{ firstName, lastName, gender, dateOfBirth, photo }
+		);
+		await user.save();
+		return res.status(200).json({ msg: 'The user profile updated successfully..' });
+	} catch (err) {
+		console.log(err);
+		return res.status(400).json({ errMsg: 'Error from server ' });
+	}
 };
 export default { createUser, userByID, read, update, list };

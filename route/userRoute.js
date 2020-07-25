@@ -3,6 +3,7 @@
 import { Router } from 'express';
 import userCtrl from '../controller/userController';
 import { registerRules, validate } from '../helper/validation';
+import uploadImage from '../helper/uploadImage';
 
 const router = Router();
 const { createUser, userByID, read, update, list } = userCtrl;
@@ -25,7 +26,7 @@ router.route('/api/users').get(list).post(registerRules(), validate, createUser)
   @ PUT to edit the user
   @ DELET the user
 */
-router.route('/api/users/:userId').get(read).put(update);
+router.route('/api/users/:userId').get(read).put(uploadImage, update);
 /*
   @ user Params
   @ get params

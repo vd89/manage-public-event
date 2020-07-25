@@ -20,14 +20,13 @@ const UserSchema = new Schema({
 		type: String,
 	},
 	dateOfBirth: {
-		type: Date,
+		type: String,
 	},
 	gender: {
 		type: String,
 	},
 	photo: {
-		data: Buffer,
-		contentType: String,
+		type: String,
 	},
 });
 

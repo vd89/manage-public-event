@@ -6,7 +6,7 @@ import { registerRules, validate } from '../helper/validation';
 import uploadImage from '../helper/uploadImage';
 
 const router = Router();
-const { createUser, userByID, read, update, list } = userCtrl;
+const { createUser, userByID, read, update, list, removeUser } = userCtrl;
 
 // //Test Route
 // router.get('/api/users', (req, res) => {
@@ -26,7 +26,7 @@ router.route('/api/users').get(list).post(registerRules(), validate, createUser)
   @ PUT to edit the user
   @ DELET the user
 */
-router.route('/api/users/:userId').get(read).put(uploadImage, update);
+router.route('/api/users/:userId').get(read).put(uploadImage, update).delete(removeUser);
 /*
   @ user Params
   @ get params

@@ -66,4 +66,16 @@ const update = async (req, res) => {
 		return res.status(400).json({ errMsg: 'Error from server ' });
 	}
 };
-export default { createUser, userByID, read, update, list };
+
+const removeUser = async (req, res) => {
+	try {
+		const user = req.profile;
+		const deletedUser = await user.remove();
+		deletedUser.hashedPasswor = undefined;
+		return res.status(200).json(deletedUser);
+	} catch (err) {
+		console.log(err);
+		return res.status(400).json({ errMsg: 'Error from server ' });
+	}
+};
+export default { createUser, userByID, read, update, list, removeUser };

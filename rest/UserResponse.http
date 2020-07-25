@@ -1,0 +1,10 @@
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 42
+ETag: W/"2a-NBtk/JwpsA13VKscreYjnd8j3JE"
+Date: Sat, 25 Jul 2020 06:11:09 GMT
+Connection: close
+
+{"msg":"This is the rest route from user"}

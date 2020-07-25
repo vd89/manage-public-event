@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 const router = Router()
 
-router.get('/',(req,res) => {
+router.get('/api/users',(req,res) => {
   return res.json({msg: 'This is the rest route from user'})
 }
 )

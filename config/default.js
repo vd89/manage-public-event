@@ -1,6 +1,6 @@
 const config = {
 	port: process.env.PORT || 5000,
-	mongoUri: 'mongodb+srv://event:changedPass@eventmanagement.utzmd.mongodb.net/<dbname>?retryWrites=true&w=majority',
+	mongoUri: 'mongodb+srv://event:changedPass@eventmanagement.utzmd.mongodb.net/EventManagementter?retryWrites=true&w=majority',
 	mongoOPT: {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,

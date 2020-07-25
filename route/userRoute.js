@@ -1,9 +1,22 @@
+/** @format */
+
 import { Router } from 'express';
+import userCtrl from '../controller/userController';
 
-const router = Router()
+const router = Router();
+const { createUser } = userCtrl;
 
-router.get('/api/users',(req,res) => {
-  return res.json({msg: 'This is the rest route from user'})
-}
-)
-export default router
+//Test Route
+router.get('/api/users', (req, res) => {
+	return res.json({ msg: 'This is the rest route from user' });
+});
+
+
+/*
+  @ POST route
+  @ signup user will create user
+  @ Public Route
+*/
+router.post('/api/users', createUser);
+
+export default router;

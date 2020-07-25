@@ -7,4 +7,9 @@ ETag: W/"2a-NBtk/JwpsA13VKscreYjnd8j3JE"
 Date: Sat, 25 Jul 2020 06:11:09 GMT
 Connection: close
 
+
+# GET http://localhost:5000/api/users HTTP/1.1
+
+GET http://localhost:5000/api/users HTTP/1.1
+
 {"msg":"This is the rest route from user"}

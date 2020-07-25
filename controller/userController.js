@@ -50,7 +50,6 @@ const read = (req, res) => {
 };
 
 const update = async (req, res) => {
-	console.log(req.body);
 	try {
 		const photo = req.file.filename;
 		console.log(photo);

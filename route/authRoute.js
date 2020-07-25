@@ -11,6 +11,6 @@ const { signin } = authCtrl;
   @ POST Route
   @ public route
 */
-router.post('/auth/signin', loginRules(), validate, signin);
+router.post('/signin', loginRules(), validate, signin);
 
 export default router;

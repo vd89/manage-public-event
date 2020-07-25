@@ -22,8 +22,8 @@ app.use(express.urlencoded({ extended: false }));
 dbController();
 
 //Router
-app.use('/', userRoute);
-app.use('/', authRoute);
+app.use('/api', userRoute);
+app.use('/auth', authRoute);
 
 //Server
 app.listen(port, (err) => {

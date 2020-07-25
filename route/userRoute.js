@@ -15,21 +15,26 @@ const { createUser, userByID, read, update, list, removeUser } = userCtrl;
 
 /*
   @ GET all the users
-  @ POST route
-  @ signup user will create user
   @ Public Route
 */
-router.route('/api/users').get(list).post(registerRules(), validate, createUser);
+router.route('/users').get(list);
+/*
+  @ Signup route
+  @ POST
+  @ Public
+*/
+router.post('/users/signup', registerRules(), validate, createUser);
 
 /*
   @ GET the user
   @ PUT to edit the user
   @ DELET the user
 */
-router.route('/api/users/:userId').get(read).put(uploadImage, update).delete(removeUser);
+router.route('/users/:userId').get(read).put(uploadImage, update).delete(removeUser);
 /*
   @ user Params
   @ get params
 */
 router.param('userId', userByID);
+
 export default router;

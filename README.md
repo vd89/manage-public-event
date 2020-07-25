@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Event Management System
 
 Task for NodeJS practical.
@@ -8,12 +10,12 @@ Purpose of this system is to manage public events. At the time of submission, su
 
 (Change `[ ]` to `[X]` for features that are implemented)
 
-- [ ] Signup using Email and Password.
-- [ ] Login using Email and Password.
-- [ ] Get profile
-- [ ] Edit Profile. Can edit following details:
+- [x] Signup using Email and Password.
+- [x] Login using Email and Password.
+- [x] Get profile
+- [x] Edit Profile. Can edit following details:
   - FirstName, LastName, Date of Birth, Gender
-- [ ] Update profile photo (store file in a folder on file system)
+- [x] Update profile photo (store file in a folder on file system)
 - [ ] Create a new event with following details:
   - Title (string)
   - Description (text)

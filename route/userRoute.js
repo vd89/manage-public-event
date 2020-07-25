@@ -4,6 +4,7 @@ import { Router } from 'express';
 import userCtrl from '../controller/userController';
 import { registerRules, validate } from '../helper/validation';
 import uploadImage from '../helper/uploadImage';
+import authMiddleware from '../middleware/authMiddleware';
 
 const router = Router();
 const { createUser, userByID, read, update, list, removeUser } = userCtrl;
@@ -30,7 +31,11 @@ router.post('/users/signup', registerRules(), validate, createUser);
   @ PUT to edit the user
   @ DELET the user
 */
-router.route('/users/:userId').get(read).put(uploadImage, update).delete(removeUser);
+router
+	.route('/users/:userId')
+	.get(authMiddleware, read)
+	.put(authMiddleware, uploadImage, update)
+	.delete(authMiddleware, removeUser);
 /*
   @ user Params
   @ get params

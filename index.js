@@ -7,6 +7,7 @@ import morgan from 'morgan';
 import config from './config/default';
 import dbController from './controller/dbController';
 import userRoute from './route/userRoute';
+import authRoute from './route/authRoute';
 
 const { port } = config;
 const app = express();
@@ -22,6 +23,7 @@ dbController();
 
 //Router
 app.use('/', userRoute);
+app.use('/', authRoute);
 
 //Server
 app.listen(port, (err) => {

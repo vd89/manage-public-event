@@ -12,7 +12,7 @@ const registerRules = () => {
 const loginRules = () => {
 	return [
 		body('email', 'Valid Email is required').isEmail(),
-		body('password', 'Minimum 6 characters are required').not().isEmpty(),
+		body('password', 'Password is required').not().isEmpty(),
 	];
 };
 

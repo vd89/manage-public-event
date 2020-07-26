@@ -24,10 +24,13 @@ const EventSchema = new Schema(
 			type: String,
 			required: true,
 		},
-		participants: {
-			type: [Schema.Types.ObjectId],
-			ref: 'User',
-		},
+		participants: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: 'User',
+			},
+		],
+
 		maxParticipants: {
 			type: Number,
 			required: true,

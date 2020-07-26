@@ -6,7 +6,7 @@ import eventCtrl from '../controller/eventController';
 import userCtrl from '../controller/userController';
 
 const router = Router();
-const { createEvent } = eventCtrl;
+const { createEvent, eventList, eventByID, readEvent, participate } = eventCtrl;
 const { userByID } = userCtrl;
 
 //Test Route
@@ -22,7 +22,25 @@ router.get('/event', authMiddleware, (req, res) => {
 router.post('/event/new/:userId', authMiddleware, createEvent);
 
 /*
-  @ Params route to get the user profile
+  @ to get all the events
+  @ Public route
+  @ GET Route
+*/
+router.get('/event/list', eventList);
+
+/*
+  @ user Event Route
+  @ private Route
+  @ GET Route
+*/
+router.get('/event/:eventId', readEvent);
+
+router.put('/event/participate', participate);
+/*
+   @ Params route to get the user profile
+   @ Params route to get eventId
 */
 router.param('userId', userByID);
+router.param('eventId', eventByID);
+
 export default router;

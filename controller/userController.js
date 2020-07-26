@@ -46,6 +46,7 @@ const userByID = async (req, res, next, id) => {
 
 const read = (req, res) => {
 	req.profile.hashPassword = undefined;
+
 	return res.status(200).json(req.profile);
 };
 

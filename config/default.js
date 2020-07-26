@@ -3,6 +3,7 @@
 const config = {
 	port: process.env.PORT || 5000,
 	mongoUri:
+		'mongodb://127.0.0.1:27017/EventManagement' ||
 		'mongodb+srv://event:changedPass@eventmanagement.utzmd.mongodb.net/EventManagementter?retryWrites=true&w=majority',
 	mongoOPT: {
 		useNewUrlParser: true,

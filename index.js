@@ -8,6 +8,7 @@ import config from './config/default';
 import dbController from './controller/dbController';
 import userRoute from './route/userRoute';
 import authRoute from './route/authRoute';
+import eventRoute from './route/eventRoute';
 
 const { port } = config;
 const app = express();
@@ -24,7 +25,7 @@ dbController();
 //Router
 app.use('/api', userRoute);
 app.use('/auth', authRoute);
-
+app.use('/api', eventRoute);
 //Server
 app.listen(port, (err) => {
 	if (err) {

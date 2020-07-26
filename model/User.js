@@ -3,32 +3,37 @@
 import { Schema, model } from 'mongoose';
 import { genSaltSync, hashSync, compareSync } from 'bcrypt';
 
-const UserSchema = new Schema({
-	email: {
-		type: String,
-		required: true,
-		unique: true,
+const UserSchema = new Schema(
+	{
+		email: {
+			type: String,
+			required: true,
+			unique: true,
+		},
+		hashPassword: {
+			type: String,
+			required: true,
+		},
+		firstName: {
+			type: String,
+		},
+		lastName: {
+			type: String,
+		},
+		dateOfBirth: {
+			type: String,
+		},
+		gender: {
+			type: String,
+		},
+		photo: {
+			type: String,
+		},
 	},
-	hashPassword: {
-		type: String,
-		required: true,
-	},
-	firstName: {
-		type: String,
-	},
-	lastName: {
-		type: String,
-	},
-	dateOfBirth: {
-		type: String,
-	},
-	gender: {
-		type: String,
-	},
-	photo: {
-		type: String,
-	},
-});
+	{
+		timestamps: true,
+	}
+);
 
 //Virtualize password
 UserSchema.virtual('password')

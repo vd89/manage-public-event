@@ -19,7 +19,7 @@ const createUser = async (req, res) => {
 
 const list = async (req, res) => {
 	try {
-		const users = await User.find().select('email name');
+		const users = await User.find().select('email firstName');
 		return res.status(200).json(users);
 	} catch (err) {
 		console.log(err);

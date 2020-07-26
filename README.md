@@ -16,7 +16,7 @@ Purpose of this system is to manage public events. At the time of submission, su
 - [x] Edit Profile. Can edit following details:
   - FirstName, LastName, Date of Birth, Gender
 - [x] Update profile photo (store file in a folder on file system)
-- [ ] Create a new event with following details:
+- [x] Create a new event with following details:
   - Title (string)
   - Description (text)
   - Date

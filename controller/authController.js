@@ -17,7 +17,7 @@ const signin = async (req, res) => {
 			_id: user._id,
 		};
 		const token = sign(paylod, config.JwtSecret, { expiresIn: 9999 });
-		return res.status(200).json(token);
+		return res.status(200).json({ token: token, id: user._id });
 	} catch (err) {
 		console.log(err);
 		return res.status(400).json({ errMsg: 'Could not sign in' });

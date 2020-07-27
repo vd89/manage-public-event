@@ -8,7 +8,7 @@ info:
   name: 'Event Management'
   contact:
     email: 'daxcode89@gmail.com'
-host: ['localhost:5000', '192.168.0.111:5000']
+host: 'localhost:5000'
 paths:
   /api/users/:
     get:
@@ -18,9 +18,42 @@ paths:
       description: 'Multiple status values can be provided with comma separated strings'
       operationId: 'findAllUsers'
       produces:
+        - 'application/xml'
         - 'application/json'
       responses:
         '200':
           description: 'successful operation'
         '400':
           description: 'Invalid status value'
+  /api/users/signup:
+    post:
+      tags:
+        - 'Users SignUp page'
+      summary: 'User register page'
+      description: 'User registers here for his account with Email and password'
+      operationId: 'userSignUp'
+      produces:
+        - 'application/json'
+        - 'application/xml'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'List of input object'
+          required: true
+          schema:
+            $ref: '#/definitions/signup'
+      responses:
+        '200':
+          description: 'successful operation'
+        '400':
+          description: 'Invalid status value'
+definitions:
+  signup:
+    type: 'object'
+    properties:
+    email:
+      type: 'string'
+    password:
+      type: 'string'
+xml:
+  name: 'signup'

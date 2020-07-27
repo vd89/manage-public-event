@@ -6,7 +6,7 @@ import eventCtrl from '../controller/eventController';
 import userCtrl from '../controller/userController';
 
 const router = Router();
-const { createEvent, eventList, eventByID, readEvent, participate } = eventCtrl;
+const { createEvent, eventList, eventByID, readEvent, joinEvent, leaveEvent } = eventCtrl;
 const { userByID } = userCtrl;
 
 //Test Route
@@ -35,7 +35,14 @@ router.get('/event/list', eventList);
 */
 router.get('/event/:eventId', readEvent);
 
-router.put('/event/participate', participate);
+/*
+  @ User can join event
+  @ PUT Route
+  @ Private
+*/
+router.put('/event/join', joinEvent);
+
+router.put('/event/leave', leaveEvent);
 /*
    @ Params route to get the user profile
    @ Params route to get eventId

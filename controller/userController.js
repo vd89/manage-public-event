@@ -44,16 +44,16 @@ const userByID = async (req, res, next, id) => {
 	}
 };
 
-const read = (req, res) => {
-	req.profile.hashPassword = undefined;
-
-	return res.status(200).json(req.profile);
+const read = async (req, res) => {
+	const user = await User.findById(req.profile._id)
+		.populate('events', 'title')
+		.select('-hashPassword');
+	return res.status(200).json({ user: user });
 };
 
 const update = async (req, res) => {
 	try {
 		const photo = req.file.filename;
-		console.log(photo);
 		const { firstName, lastName, gender, dateOfBirth } = req.body;
 		const user = await User.findByIdAndUpdate(
 			{ _id: req.profile._id },
@@ -71,7 +71,7 @@ const removeUser = async (req, res) => {
 	try {
 		const user = req.profile;
 		const deletedUser = await user.remove();
-		deletedUser.hashedPasswor = undefined;
+		deletedUser.hashedPassword = undefined;
 		return res.status(200).json(deletedUser);
 	} catch (err) {
 		console.log(err);

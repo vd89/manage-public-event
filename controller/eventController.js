@@ -68,7 +68,6 @@ const readEvent = async (req, res) => {
 const joinEvent = async (req, res) => {
 	try {
 		const event = await Event.findById(req.body.eventId);
-		console.log(event);
 		if (event.participants.length <= event.maxParticipants - 1) {
 			const user = await User.findByIdAndUpdate(req.body.userId, {
 				$push: { events: req.body.eventId },

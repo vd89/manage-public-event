@@ -21,7 +21,7 @@ const UserSchema = new Schema(
 			type: String,
 		},
 		dateOfBirth: {
-			type: String,
+			type: Date,
 		},
 		gender: {
 			type: String,
@@ -29,6 +29,12 @@ const UserSchema = new Schema(
 		photo: {
 			type: String,
 		},
+		events: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: 'Event',
+			},
+		],
 	},
 	{
 		timestamps: true,

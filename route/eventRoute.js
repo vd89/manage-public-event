@@ -26,23 +26,28 @@ router.post('/event/new/:userId', authMiddleware, createEvent);
   @ Public route
   @ GET Route
 */
-router.get('/event/list', eventList);
+router.get('/event/list', authMiddleware, eventList);
 
 /*
   @ user Event Route
   @ private Route
   @ GET Route
 */
-router.get('/event/:eventId', readEvent);
+router.get('/event/:eventId', authMiddleware, readEvent);
 
 /*
   @ User can join event
   @ PUT Route
   @ Private
 */
-router.put('/event/join', joinEvent);
+router.put('/event/join', authMiddleware, joinEvent);
 
-router.put('/event/leave', leaveEvent);
+/*
+  @ user can leave event
+  @ PUT Route
+  @ Private
+*/
+router.put('/event/leave', authMiddleware, leaveEvent);
 /*
    @ Params route to get the user profile
    @ Params route to get eventId

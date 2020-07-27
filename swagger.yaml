@@ -1,0 +1,26 @@
+# @format
+
+swagger: '2.0'
+info:
+  description: 'This is api documentation for event management app '
+  version: '1.0.0'
+  title: 'Event Management'
+  name: 'Event Management'
+  contact:
+    email: 'daxcode89@gmail.com'
+host: ['localhost:5000', '192.168.0.111:5000']
+paths:
+  /api/users/:
+    get:
+      tags:
+        - 'Users'
+      summary: 'Find All Users'
+      description: 'Multiple status values can be provided with comma separated strings'
+      operationId: 'findAllUsers'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+        '400':
+          description: 'Invalid status value'

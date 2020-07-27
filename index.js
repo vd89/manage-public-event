@@ -2,6 +2,8 @@
 
 import express from 'express';
 import morgan from 'morgan';
+import swaggerUi from 'swagger-ui-express';
+import YAML from 'yamljs';
 
 import config from './config/default';
 import dbController from './controller/dbController';
@@ -19,6 +21,10 @@ app.use(express.urlencoded({ extended: false }));
 
 //Database connection
 dbController();
+
+// Swagger options
+const swaggerDocs = YAML.load('./swagger.yaml');
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 //Router
 app.use('/api', userRoute);

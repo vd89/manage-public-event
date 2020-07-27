@@ -9,11 +9,6 @@ import authMiddleware from '../middleware/authMiddleware';
 const router = Router();
 const { createUser, userByID, read, update, list, removeUser } = userCtrl;
 
-// //Test Route
-// router.get('/api/users', (req, res) => {
-// 	return res.json({ msg: 'This is the rest route from user' });
-// });
-
 /*
   @ GET all the users
   @ Public Route
@@ -29,7 +24,7 @@ router.post('/users/signup', registerRules(), validate, createUser);
 /*
   @ GET the user
   @ PUT to edit the user
-  @ DELET the user
+  @ DELETE the user
 */
 router
 	.route('/users/:userId')

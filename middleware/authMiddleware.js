@@ -6,7 +6,7 @@ import { verify } from 'jsonwebtoken';
 export default async function authMiddleware(req, res, next) {
 	const token = req.header('Authorization');
 	if (!token) {
-		return res.status(401).json({ errMsg: 'You are not regiserted user' });
+		return res.status(401).json({ errMsg: 'You are not registered user' });
 	}
 	try {
 		const decode = await verify(token, config.JwtSecret);

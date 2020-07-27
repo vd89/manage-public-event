@@ -38,7 +38,7 @@ const eventList = async (req, res) => {
 const eventByID = async (req, res, next, id) => {
 	try {
 		let event = await Event.findById(id)
-			.populate('createdBy', '_id firstName')
+			.populate('createdBy', '_id firstName email')
 			.populate('participants', '_id firstName email')
 			.exec();
 		if (!event) {

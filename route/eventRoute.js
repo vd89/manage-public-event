@@ -9,11 +9,6 @@ const router = Router();
 const { createEvent, eventList, eventByID, readEvent, joinEvent, leaveEvent } = eventCtrl;
 const { userByID } = userCtrl;
 
-//Test Route
-router.get('/event', authMiddleware, (req, res) => {
-	res.status(200).json({ msg: 'This is authorized route to create event' });
-});
-
 /*
   @ create Event
   @ POST Route
@@ -48,6 +43,7 @@ router.put('/event/join', authMiddleware, joinEvent);
   @ Private
 */
 router.put('/event/leave', authMiddleware, leaveEvent);
+
 /*
    @ Params route to get the user profile
    @ Params route to get eventId

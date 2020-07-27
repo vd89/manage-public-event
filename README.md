@@ -24,11 +24,11 @@ Purpose of this system is to manage public events. At the time of submission, su
   - Place (string)
   - Participants
   - Maximum participants allowed
-- [ ] Get events other users have created.
-- [ ] Join an event.
-- [ ] Leave an event.
-- [ ] Get participants of an event.
-- [ ] Get details of creator of an event.
+- [x] Get events other users have created.
+- [x] Join an event.
+- [x] Leave an event.
+- [x] Get participants of an event.
+- [x] Get details of creator of an event.
 
 ## Technologies/Packages to use
 
@@ -44,7 +44,7 @@ Purpose of this system is to manage public events. At the time of submission, su
 - [ ] Request Validation
 - [ ] Authorization
 - [ ] Error handling
-- [ ] API functinality
+- [ ] API functionality
 - [ ] Security
 - [ ] Test cases
 - [ ] Code quality

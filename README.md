@@ -64,6 +64,10 @@ In this application I have used <b>NodeJs</b> to run and compile the application
 3. @babel/preset-env
 4. nodemon
 
+## For Api Documentation
+
+Swagger ui is used to test the routes and documentation of the api routes
+
 ---
 
 <h2>Task</h2>

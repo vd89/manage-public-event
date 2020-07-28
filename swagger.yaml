@@ -5,7 +5,6 @@ info:
   description: 'This is api documentation for event management app '
   version: '1.0.0'
   title: 'Event Management'
-  name: 'Event Management'
   contact:
     email: 'daxcode89@gmail.com'
 host: 'localhost:5000'
@@ -25,6 +24,7 @@ paths:
           description: 'successful operation'
         '400':
           description: 'Invalid status value'
+
   /api/users/signup:
     post:
       tags:
@@ -38,7 +38,7 @@ paths:
       parameters:
         - in: 'body'
           name: 'body'
-          description: 'List of input object'
+          description: 'Please change the string element to field'
           required: true
           schema:
             $ref: '#/definitions/signup'
@@ -47,13 +47,41 @@ paths:
           description: 'successful operation'
         '400':
           description: 'Invalid status value'
+  /auth/signin:
+    post:
+      tags:
+        - 'Users Login Page'
+      summary: 'Auth singin route'
+      description: 'register user signin with email and password'
+      operationId: 'userLogin'
+      produces:
+        - 'application/json'
+        - 'application/xml'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Please change the string element to field'
+          required: true
+          schema:
+            $ref: '#/definitions/login'
+      responses:
+        '200':
+          description: 'successful operation'
+        '400':
+          description: 'Invalid status value'
+
 definitions:
-  signup:
-    type: 'object'
+  login:
+    type: object
     properties:
-    email:
-      type: 'string'
-    password:
-      type: 'string'
-xml:
-  name: 'signup'
+      email:
+        type: string
+      password:
+        type: string
+  signup:
+    type: object
+    properties:
+      email:
+        type: string
+      password:
+        type: string

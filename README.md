@@ -30,6 +30,40 @@ In this application I have used <b>NodeJs</b> to run and compile the application
   
   </pre>
 
+## Application flow and Operation
+
+- User signup route where the user will register the account with email and password
+- User login route where he will be able to login with same email and password that he has registered with
+- User will be able up update his/her profile with firstName, lastName, dateOfBirth, gender and photo for the profile,this images will be stored in profile folder which is in public folder, this will be authenticated route so login is important.
+- User will be able to view his/her own profile.
+- User will be able to create the events and that will be reflected in his account which event he has created and which event he will be attending
+- In the event routes that are authenticated so will be able to create the event with the specific date, as the event will last for 24 hr the time will be default.
+- At the time of creation of the event the user will be able to describe the numbers of participants that will be able to join the event, and if the participants are more then given number they will not be allowed to join the event.
+- Other users will be able to see the events when they log in to their account and will be able to attend that event, which will be reflected in their account as well.
+- Users will be able to leave the event and that will get remove from their account as well.
+
+## Tech Stack
+
+<b>Dependencies and npm packages</b>
+
+1. NodeJs
+2. ExpressJs
+3. MongoDb
+4. Express-validator
+5. Morgan
+6. Multer
+7. JsonWebToken
+8. Bcrypt
+9. Swagger Ui Express
+10. Yamljs
+
+<b>DevDependencies</b>
+
+1. @babel/core
+2. @babel/node
+3. @babel/preset-env
+4. nodemon
+
 ---
 
 <h2>Task</h2>
